@@ -34,18 +34,18 @@ export function InputBar({ onSend, isLoading }: InputBarProps) {
           placeholder="Ask about workouts, nutrition, or your fitness goals..."
           disabled={isLoading}
           rows={1}
-          className="w-full resize-none bg-white/10 text-white placeholder-white/40 rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-fitness-accent/50 disabled:opacity-50 transition-all"
+          className="w-full resize-none bg-fitness-muted border border-white/10 text-white placeholder-white/30 rounded-2xl px-4 py-3 pr-12 focus:outline-none focus:ring-2 focus:ring-fitness-primary/50 focus:border-fitness-primary/50 disabled:opacity-50 transition-all"
           style={{ minHeight: "48px", maxHeight: "120px" }}
         />
       </div>
       <button
         onClick={handleSubmit}
         disabled={!input.trim() || isLoading}
-        className="w-12 h-12 bg-fitness-accent hover:bg-fitness-primary disabled:bg-white/10 disabled:cursor-not-allowed rounded-full flex items-center justify-center transition-colors"
+        className="w-12 h-12 bg-gradient-to-br from-fitness-primary to-fitness-accent hover:from-fitness-accent hover:to-fitness-primary disabled:from-white/10 disabled:to-white/10 disabled:cursor-not-allowed rounded-full flex items-center justify-center transition-all"
       >
         <svg
           className={`w-5 h-5 ${
-            input.trim() && !isLoading ? "text-fitness-dark" : "text-white/40"
+            input.trim() && !isLoading ? "text-white" : "text-white/40"
           }`}
           fill="none"
           stroke="currentColor"

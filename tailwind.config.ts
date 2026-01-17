@@ -10,11 +10,13 @@ const config: Config = {
     extend: {
       colors: {
         fitness: {
-          primary: "#10B981",
-          secondary: "#059669",
-          accent: "#34D399",
-          dark: "#064E3B",
-          light: "#D1FAE5",
+          primary: "#DC2626",
+          secondary: "#B91C1C",
+          accent: "#EF4444",
+          dark: "#0A0A0A",
+          light: "#FECACA",
+          muted: "#1A1A1A",
+          surface: "#141414",
         },
       },
     },

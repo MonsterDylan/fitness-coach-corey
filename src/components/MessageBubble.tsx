@@ -12,10 +12,12 @@ export function MessageBubble({ message }: MessageBubbleProps) {
       {/* Avatar */}
       <div
         className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-          isUser ? "bg-blue-500" : "bg-fitness-accent"
+          isUser
+            ? "bg-white/10 border border-white/20"
+            : "bg-gradient-to-br from-fitness-primary to-fitness-accent"
         }`}
       >
-        <span className={`text-sm font-bold ${isUser ? "text-white" : "text-fitness-dark"}`}>
+        <span className="text-sm font-bold text-white">
           {isUser ? "Y" : "C"}
         </span>
       </div>
@@ -24,8 +26,8 @@ export function MessageBubble({ message }: MessageBubbleProps) {
       <div
         className={`max-w-[80%] md:max-w-[70%] rounded-2xl px-4 py-3 ${
           isUser
-            ? "bg-blue-500 text-white rounded-tr-sm"
-            : "bg-white/10 text-white rounded-tl-sm"
+            ? "bg-gradient-to-br from-fitness-primary to-fitness-secondary text-white rounded-tr-sm"
+            : "bg-fitness-muted border border-white/10 text-white rounded-tl-sm"
         }`}
       >
         <p className="whitespace-pre-wrap text-sm md:text-base leading-relaxed">
@@ -33,7 +35,7 @@ export function MessageBubble({ message }: MessageBubbleProps) {
         </p>
         <p
           className={`text-xs mt-2 ${
-            isUser ? "text-blue-100" : "text-white/50"
+            isUser ? "text-white/60" : "text-white/40"
           }`}
         >
           {message.timestamp.toLocaleTimeString([], {

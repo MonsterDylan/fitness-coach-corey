@@ -85,7 +85,7 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="h-full flex flex-col bg-white/5 backdrop-blur-sm rounded-t-3xl mx-2 md:mx-4">
+    <div className="h-full flex flex-col bg-fitness-surface/50 backdrop-blur-sm rounded-t-3xl mx-2 md:mx-4 border border-white/5 border-b-0">
       {/* Messages Area */}
       <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 chat-scroll">
         {messages.map((message) => (
@@ -93,10 +93,10 @@ export function ChatInterface() {
         ))}
         {isLoading && (
           <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-fitness-accent rounded-full flex items-center justify-center flex-shrink-0">
-              <span className="text-fitness-dark text-sm font-bold">C</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-fitness-primary to-fitness-accent rounded-full flex items-center justify-center flex-shrink-0">
+              <span className="text-white text-sm font-bold">C</span>
             </div>
-            <div className="bg-white/10 rounded-2xl rounded-tl-sm px-4 py-3">
+            <div className="bg-fitness-muted border border-white/10 rounded-2xl rounded-tl-sm px-4 py-3">
               <div className="flex gap-1">
                 <div className="w-2 h-2 bg-fitness-accent rounded-full typing-dot"></div>
                 <div className="w-2 h-2 bg-fitness-accent rounded-full typing-dot"></div>
