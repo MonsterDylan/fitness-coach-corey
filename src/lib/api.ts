@@ -8,6 +8,7 @@ export interface ChatRequest {
 export interface ChatResponse {
   response: string;
   sessionId: string;
+  showBookingLink?: boolean;
 }
 
 export async function sendMessage(request: ChatRequest): Promise<ChatResponse> {

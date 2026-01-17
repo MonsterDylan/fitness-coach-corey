@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { sendMessage } from "@/lib/api";
 import { MessageBubble } from "./MessageBubble";
 import { InputBar } from "./InputBar";
+import { CalEmbed } from "./CalEmbed";
 
 export interface Message {
   id: string;
@@ -24,6 +25,7 @@ export function ChatInterface() {
     },
   ]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
   const [sessionId] = useState(() => uuidv4());
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -33,7 +35,7 @@ export function ChatInterface() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, showBooking]);
 
   const handleSendMessage = async (content: string) => {
     if (!content.trim() || isLoading) return;
@@ -62,6 +64,11 @@ export function ChatInterface() {
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
+
+      // Show booking calendar if AI suggests it
+      if (response.showBookingLink) {
+        setShowBooking(true);
+      }
     } catch (error) {
       console.error("Failed to send message:", error);
       const errorMessage: Message = {
@@ -98,6 +105,14 @@ export function ChatInterface() {
             </div>
           </div>
         )}
+
+        {/* Cal.com Booking Embed */}
+        {showBooking && (
+          <div className="mt-4">
+            <CalEmbed />
+          </div>
+        )}
+
         <div ref={messagesEndRef} />
       </div>
 
